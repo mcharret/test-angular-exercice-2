@@ -1,0 +1,21 @@
+<div>
+  <input type="number" [(ngModel)]="nombre1" placeholder="Nombre 1" />
+  <select [(ngModel)]="operation">
+    <option *ngFor="let op of operations" [value]="op">{{ op }}</option>
+  </select>
+  <input type="number" [(ngModel)]="nombre2" placeholder="Nombre 2" />
+  <button (click)="calculer()">Calculer</button>
+</div>
+
+<div>
+  Résultat : {{ resultat }}
+</div>
+
+<h3>Historique des opérations</h3>
+<ul>
+  <li *ngFor="let hist of historique">
+    {{ hist.date }} : {{ hist.operation }} = {{ hist.resultat }} 
+    <button (click)="supprimerHistorique(hist)">Supprimer</button>
+  </li>
+</ul>
+
